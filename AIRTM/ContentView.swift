@@ -8,10 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    @AppStorage("current_status") var status = false
     var body: some View {
-        Text("Hello, world!")
-            .padding()
-    }
+        NavigationView{
+            
+            VStack{
+                
+                if status{BaseView()}
+                else{Login()}
+            }
+           
+        } .navigationTitle("")
+        .navigationBarHidden(true)
+        .statusBar(hidden: true)
+}
 }
 
 struct ContentView_Previews: PreviewProvider {
